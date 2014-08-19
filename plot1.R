@@ -1,5 +1,6 @@
 plot1 <- function() {
   #reads file into memory and selects only the dates of interest
+  library(lubridate)
   data <- read.table("household_power_consumption.txt", sep=";", header=T)
   data$Date <- as.Date(data$Date, format="%d/%m/%Y")
   data.sub <- data[year(data$Date)=="2007",]
