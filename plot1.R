@@ -6,11 +6,16 @@ plot1 <- function() {
   data.sub <- data[year(data$Date)=="2007",]
   data.sub <- data.sub[month(data.sub$Date)==02,]
   data.sub <- data.sub[mday(data.sub$Date) %in% c(1,2),]
+  
+  #removes huge dataframe
   rm(data)
+  
+  #casts Date and Global_active_power into useable formats
   data.sub$Time <- strptime(data.sub$Time, format="%H:%M:%S")
+  data.sub$Global_active_power <- as.numeric(as.character(data.sub$Global_active_power))
   
   #creates graphic
   png("plot1.png")
-  hist(as.numeric(as.character(data.sub$Global_active_power)), xlab="Global Active Power (kilowatts)", main="Global Active Power", col="red", breaks=15)
+  hist(data.sub$Global_active_power, xlab="Global Active Power (kilowatts)", main="Global Active Power", col="red", breaks=15)
   dev.off()
 }
