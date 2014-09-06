@@ -14,7 +14,7 @@ plot3 <- function() {
   plot(data.sub$Date, as.numeric(as.character(data.sub$Sub_metering_1)), type="l", col="black", xlab=" ", ylab="Energy sub metering")
   with(data.sub, lines(Date, as.numeric(as.character(Sub_metering_2)), col="red"))
   with(data.sub, lines(Date, as.numeric(as.character(Sub_metering_3)), col="blue"))
-  legend("topright", pch="-", col=c("black", "red", "blue"), legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+  legend("topright", lwd="1", col=c("black", "red", "blue"), legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 #   title(xlab="", ylab="Energy sub metering")
   dev.off()
 }
