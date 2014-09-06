@@ -8,6 +8,6 @@ The general strategy for all four scripts is as follows:
 <li>Read the dataset into memory
 <li>Select only a subset of the data to be stored into a new dataframe
 <li>Delete the large dataset from memory
-<li>Cast the variables to be charted into useable formats using [lubridate](http://cran.r-project.org/web/packages/lubridate/index.html) for the dates
+<li>Cast the variables to be charted into useable formats using <a href="http://cran.r-project.org/web/packages/lubridate/index.html">lubridate</a> for the dates
 <li>Chart using R's base plotting system
 </ol>
