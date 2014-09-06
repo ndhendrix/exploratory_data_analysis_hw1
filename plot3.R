@@ -10,13 +10,11 @@ plot3 <- function() {
   data.sub$Date <- strptime(paste(data.sub$Date, data.sub$Time), "%d/%m/%Y %H:%M:%S")
   
   #creates graphic
-  png("plot2.png")
-  with(data.sub,{
-    plot(Date, Sub_metering_1, type="l", col="black")
-    plot(Date, Sub_metering_2, type="l", col="red")
-    plot(Date, Sub_metering_3, type="l", col="blue")
-  })
-  legend("topright", col=c("black", "red", "blue"))
-#   , legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+  png("plot3.png")
+  plot(data.sub$Date, as.numeric(as.character(data.sub$Sub_metering_1)), type="l", col="black", xlab=" ", ylab="Energy sub metering")
+  with(data.sub, lines(Date, as.numeric(as.character(Sub_metering_2)), col="red"))
+  with(data.sub, lines(Date, as.numeric(as.character(Sub_metering_3)), col="blue"))
+  legend("topright", pch="-", col=c("black", "red", "blue"), legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+#   title(xlab="", ylab="Energy sub metering")
   dev.off()
 }
